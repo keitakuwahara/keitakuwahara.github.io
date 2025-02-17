@@ -3,84 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>個人サイト</title>
+    <title>桑原慶太 | Home</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            display: flex;
-            height: 100vh;
-        }
-        .sidebar {
-            width: 250px;
+            text-align: center;
             background-color: #f5f5f5;
+        }
+        .container {
+            width: 80%;
+            max-width: 800px;
+            margin: 0 auto;
             padding: 20px;
-            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-            position: fixed;
-            left: -250px;
-            top: 0;
-            height: 100%;
-            transition: left 0.3s ease;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
         }
-        .sidebar h2 {
-            font-size: 20px;
-            margin-bottom: 20px;
+        h1 {
+            margin-top: 20px;
         }
-        .sidebar a {
-            display: block;
-            text-decoration: none;
+        p {
+            font-size: 16px;
             color: #333;
-            padding: 10px 0;
-            cursor: pointer;
         }
-        .sidebar a:hover {
-            background-color: #ddd;
+        .nav {
+            margin: 20px 0;
         }
-        .content {
-            flex: 1;
-            padding: 20px;
-            margin-left: 20px;
+        .nav a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #0073e6;
+            font-weight: bold;
         }
-        .menu-button {
-            position: fixed;
-            left: 10px;
-            top: 10px;
-            background-color: #333;
-            color: white;
-            padding: 10px;
-            border: none;
-            cursor: pointer;
+        .footer {
+            margin-top: 30px;
+            font-size: 14px;
+            color: #666;
         }
     </style>
-    <script>
-        function showContent(section) {
-            const contentData = {
-                'home': '<h1>ホーム</h1><p>こちらはホームページです。好きな内容を書き込んでください。</p>',
-                'profile': '<h1>プロフィール</h1><p>ここに自己紹介や経歴などを書きます。</p>',
-                'research': '<h1>研究</h1><p>研究内容や論文、成果などを掲載します。</p>',
-                'contact': '<h1>お問い合わせ</h1><p>連絡先や問い合わせ方法を記載します。</p>'
-            };
-            document.getElementById('content').innerHTML = contentData[section] || '<h1>ページが見つかりません</h1>';
-        }
-        function toggleSidebar() {
-            const sidebar = document.querySelector('.sidebar');
-            sidebar.style.left = sidebar.style.left === '0px' ? '-250px' : '0px';
-        }
-    </script>
 </head>
 <body>
-    <button class="menu-button" onclick="toggleSidebar()">☰</button>
-    <div class="sidebar">
-        <h2>サイト名</h2>
-        <a onclick="showContent('home')">ホーム</a>
-        <a onclick="showContent('profile')">プロフィール</a>
-        <a onclick="showContent('research')">研究</a>
-        <a onclick="showContent('contact')">お問い合わせ</a>
-    </div>
-    <div class="content" id="content">
-        <h1>ようこそ</h1>
-        <p>こちらは個人サイトのサンプルです。自由にカスタマイズしてください。</p>
+    <div class="container">
+        <h1>桑原慶太</h1>
+        <p>経済学者・市場デザイン研究者</p>
+        
+        <div class="nav">
+            <a href="#profile">プロフィール</a>
+            <a href="#research">研究</a>
+            <a href="#contact">連絡先</a>
+        </div>
+        
+        <h2 id="profile">プロフィール</h2>
+        <p>ここに自己紹介文を記入</p>
+        
+        <h2 id="research">研究</h2>
+        <p>ここに研究内容や論文情報を記入</p>
+        
+        <h2 id="contact">連絡先</h2>
+        <p>メール: example@example.com</p>
+        
+        <div class="footer">
+            <p>&copy; 2025 桑原慶太. All Rights Reserved.</p>
+        </div>
     </div>
 </body>
 </html>
