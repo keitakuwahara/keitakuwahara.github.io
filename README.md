@@ -1,1 +1,0 @@
-# keitakuwahara.github.io
