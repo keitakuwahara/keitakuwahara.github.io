@@ -17,6 +17,11 @@
             background-color: #f5f5f5;
             padding: 20px;
             box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            left: -250px;
+            top: 0;
+            height: 100%;
+            transition: left 0.3s ease;
         }
         .sidebar h2 {
             font-size: 20px;
@@ -35,20 +40,37 @@
         .content {
             flex: 1;
             padding: 20px;
+            margin-left: 20px;
+        }
+        .menu-button {
+            position: fixed;
+            left: 10px;
+            top: 10px;
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
         }
     </style>
     <script>
         function showContent(section) {
-            document.getElementById('content').innerHTML = {
-                'home': '<h1>ホーム</h1><p>こちらはホームページです。</p>',
-                'profile': '<h1>プロフィール</h1><p>こちらはプロフィールのページです。</p>',
-                'research': '<h1>研究</h1><p>こちらは研究内容のページです。</p>',
-                'contact': '<h1>お問い合わせ</h1><p>こちらはお問い合わせページです。</p>'
-            }[section] || '<h1>ページが見つかりません</h1>';
+            const contentData = {
+                'home': '<h1>ホーム</h1><p>こちらはホームページです。好きな内容を書き込んでください。</p>',
+                'profile': '<h1>プロフィール</h1><p>ここに自己紹介や経歴などを書きます。</p>',
+                'research': '<h1>研究</h1><p>研究内容や論文、成果などを掲載します。</p>',
+                'contact': '<h1>お問い合わせ</h1><p>連絡先や問い合わせ方法を記載します。</p>'
+            };
+            document.getElementById('content').innerHTML = contentData[section] || '<h1>ページが見つかりません</h1>';
+        }
+        function toggleSidebar() {
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.style.left = sidebar.style.left === '0px' ? '-250px' : '0px';
         }
     </script>
 </head>
 <body>
+    <button class="menu-button" onclick="toggleSidebar()">☰</button>
     <div class="sidebar">
         <h2>サイト名</h2>
         <a onclick="showContent('home')">ホーム</a>
