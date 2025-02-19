@@ -32,13 +32,21 @@
             line-height: 1.2;
         }
         .nav-container {
-            text-align: center;
+            position: absolute;
+            top: 10px;
+            left: 10px;
         }
         .nav {
             display: none;
             flex-direction: column;
-            align-items: center;
-            margin: 10px 0;
+            align-items: flex-start;
+            background: white;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: absolute;
+            top: 50px;
+            left: 10px;
         }
         .nav a {
             text-decoration: none;
@@ -47,19 +55,17 @@
             font-size: 1em;
             transition: color 0.3s;
             padding: 5px 10px;
+            display: block;
         }
         .nav a:hover {
             color: #005bb5;
         }
         .nav-toggle {
-            background-color: #0073e6;
-            color: white;
+            background: none;
             border: none;
-            padding: 10px 20px;
-            font-size: 1em;
+            font-size: 1.5em;
             cursor: pointer;
-            border-radius: 5px;
-            margin-bottom: 10px;
+            color: #0073e6;
         }
         .section {
             margin: 40px 0;
@@ -97,7 +103,7 @@
         <h1 class="center-text">Keita Kuwahara</h1>
         <p class="center-text">Graduate Student in Economics, The University of Tokyo</p>
         <div class="nav-container">
-            <button class="nav-toggle" onclick="toggleNav()">Toggle Navigation</button>
+            <button class="nav-toggle" onclick="toggleNav()">&#9776;</button>
             <div class="nav" id="nav">
                 <a href="#research interests">Research Interests</a>
                 <a href="#working papers">Working Papers</a>
