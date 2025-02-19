@@ -34,11 +34,11 @@
             text-align: center;
             margin: 20px 0;
             display: flex;
-            justify-content: center;
-            gap: 10px;
+            justify-content: space-around;
             white-space: nowrap;
-            overflow: hidden;
+            overflow: visible;
             flex-wrap: nowrap;
+            padding: 10px;
         }
         .nav a {
             text-decoration: none;
@@ -47,6 +47,7 @@
             font-size: calc(1vw + 0.5em);
             transition: color 0.3s;
             padding: 5px 10px;
+            flex-shrink: 0;
         }
         .nav a:hover {
             color: #005bb5;
