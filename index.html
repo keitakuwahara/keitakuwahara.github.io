@@ -31,28 +31,35 @@
             font-size: 1.0vw;
             line-height: 1.2;
         }
-        .nav {
+        .nav-container {
             text-align: center;
-            margin: 20px 0;
-            display: flex;
-            justify-content: center;
-            white-space: nowrap;
-            overflow: visible;
-            flex-wrap: nowrap;
-            padding: 10px;
+        }
+        .nav {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            margin: 10px 0;
         }
         .nav a {
             text-decoration: none;
             color: #0073e6;
             font-weight: bold;
-/*             font-size: calc(0.4vw + 0.2em); */
-            font-size: 1.0vw;
+            font-size: 1em;
             transition: color 0.3s;
             padding: 5px 10px;
-            flex-shrink: 0;
         }
         .nav a:hover {
             color: #005bb5;
+        }
+        .nav-toggle {
+            background-color: #0073e6;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-bottom: 10px;
         }
         .section {
             margin: 40px 0;
@@ -73,20 +80,33 @@
             height: auto;
         }
     </style>
+    <script>
+        function toggleNav() {
+            var nav = document.getElementById("nav");
+            if (nav.style.display === "flex") {
+                nav.style.display = "none";
+            } else {
+                nav.style.display = "flex";
+            }
+        }
+    </script>
 </head>
 <body>
     <div class="container">
         
         <h1 class="center-text">Keita Kuwahara</h1>
         <p class="center-text">Graduate Student in Economics, The University of Tokyo</p>
-        <div class="nav">
-            <a href="#research interests">Research Interests</a>
-            <a href="#working papers">Working Papers</a>
-            <a href="#conference presentations">Conference Presentations</a>
-            <a href="#education">Education</a>
-            <a href="#research assistant">Research Assistant</a>
-            <a href="#teaching assistant">Teaching Assistant</a>
-            <a href="#contact">Contact</a>
+        <div class="nav-container">
+            <button class="nav-toggle" onclick="toggleNav()">Toggle Navigation</button>
+            <div class="nav" id="nav">
+                <a href="#research interests">Research Interests</a>
+                <a href="#working papers">Working Papers</a>
+                <a href="#conference presentations">Conference Presentations</a>
+                <a href="#education">Education</a>
+                <a href="#research assistant">Research Assistant</a>
+                <a href="#teaching assistant">Teaching Assistant</a>
+                <a href="#contact">Contact</a>
+            </div>
         </div>
         
         <div class="section" id="research interests">
