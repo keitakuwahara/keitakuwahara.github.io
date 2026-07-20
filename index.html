@@ -295,16 +295,6 @@
             border-radius: 9px;
         }
 
-        /* Footer */
-
-        .site-footer {
-            padding: 22px 30px;
-            color: #d9e5ee;
-            font-size: 0.86rem;
-            text-align: center;
-            background: var(--navy);
-        }
-
         /* Mobile */
 
         @media (max-width: 780px) {
@@ -875,9 +865,6 @@
             </section>
         </main>
 
-        <footer class="site-footer">
-            &copy; <span id="current-year"></span> Keita Kuwahara
-        </footer>
     </div>
 
     <script>
@@ -929,9 +916,6 @@
                 closeNavigation();
             }
         });
-
-        document.getElementById("current-year").textContent =
-            new Date().getFullYear();
     </script>
 </body>
 </html>
