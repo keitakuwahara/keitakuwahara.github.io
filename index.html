@@ -3,232 +3,933 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!--     <title>Keita Kuwahara | Home</title> -->
+
+    <meta
+        name="description"
+        content="Keita Kuwahara — PhD student in Economics at the University of Tokyo."
+    >
+
     <title>Keita Kuwahara</title>
+
     <style>
+        :root {
+            --navy: #17324d;
+            --blue: #2563a6;
+            --blue-dark: #194f80;
+            --blue-light: #edf5fc;
+            --gold: #c89b3c;
+            --text: #2d3742;
+            --muted: #65717d;
+            --border: #dce5ec;
+            --background: #eef2f5;
+            --white: #ffffff;
+            --shadow: 0 14px 40px rgba(20, 45, 70, 0.16);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: 'Helvetica Neue', sans-serif;
+            margin: 0;
+            min-height: 100vh;
+            color: var(--text);
+            font-family:
+                "Helvetica Neue",
+                Helvetica,
+                Arial,
+                sans-serif;
+            line-height: 1.65;
+            background:
+                linear-gradient(
+                    rgba(18, 38, 58, 0.48),
+                    rgba(18, 38, 58, 0.48)
+                ),
+                url("20240318_130114.jpg") center / cover fixed no-repeat;
+        }
+
+        a {
+            color: var(--blue);
+            text-decoration-thickness: 1px;
+            text-underline-offset: 3px;
+        }
+
+        a:hover {
+            color: var(--blue-dark);
+        }
+
+        .page {
+            width: min(1040px, calc(100% - 32px));
+            margin: 28px auto;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.98);
+            border: 1px solid rgba(255, 255, 255, 0.75);
+            border-radius: 14px;
+            box-shadow: var(--shadow);
+        }
+
+        /* Navigation */
+
+        .site-nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 58px;
+            padding: 0 28px;
+            background: rgba(255, 255, 255, 0.96);
+            border-bottom: 1px solid var(--border);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 6px 18px;
             margin: 0;
             padding: 0;
-            color: #333;
-/*             background-color: #666666 */
-            background-image: url('20240318_130114.jpg'); /* 画像のパス */
-            background-size: cover; /* 画面全体に拡大・縮小 */
-            background-position: center; /* 中央配置 */
-            background-repeat: no-repeat; /* 繰り返さない */
+            list-style: none;
         }
-        .container {
-            width: 100%;
-            max-width: 1000px;
-            margin: 20px auto;
-            padding-bottom: 50px;
-            background: white;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            border-radius: 0;
-            text-align: left;
-        }
-        h1 {
-            font-size: 2.5em;
-            color: #222;
-        }
-        h2 {
-            font-size: 1.5em;
-        }
-        p {
-            font-size: 1.0em;
-            margin-left: 20px;
-            margin-right: 20px;
-        }
-        ul {
-            font-size: 1.0em;
-        }
-        ul li {
-            margin-bottom: 10px; /* 10pxの間隔 */
-        }
-        .nav-container {
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            width: 100%;
-            padding: 0;
-            position: relative;
-        }
-        .nav {
-            display: none;
-            flex-direction: column;
-            align-items: flex-start;
-            background: #f1f1f1;
-            padding: 20px;
-            border-radius: 5px;
-            width: 220px;
-            position: absolute;
-            top: 10px;
-            right: 40px;
-        }
-        .nav a {
+
+        .nav-links a {
+            display: block;
+            padding: 8px 2px;
+            color: var(--navy);
+            font-size: 0.86rem;
+            font-weight: 600;
             text-decoration: none;
-            color: #0073e6;
-            font-weight: bold;
-            font-size: 1em;
-            transition: color 0.3s;
-            padding: 0;
-            margin-top: 5px;
-            margin-bottom: 5px;
-            display: block;
-            width: 100%;
+            transition:
+                color 0.2s ease,
+                transform 0.2s ease;
         }
-        .nav a:hover {
-            color: #005bb5;
+
+        .nav-links a:hover {
+            color: var(--blue);
+            transform: translateY(-1px);
         }
+
         .nav-toggle {
-            background: none;
-            border: none;
-            font-size: 2em;
+            display: none;
+            padding: 6px 10px;
+            color: var(--navy);
+            font-size: 1.75rem;
+            line-height: 1;
+            background: transparent;
+            border: 0;
             cursor: pointer;
-            color: black;
         }
-        .section {
-            margin: 40px 40px;
-        }
-        .footer {
-            margin-top: 30px;
-            font-size: 0.9em;
-            color: #777;
-        }
-        .center-text {
+
+        /* Header */
+
+        .profile-header {
+            padding: 54px 40px 46px;
             text-align: center;
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(237, 245, 252, 0.98),
+                    rgba(255, 255, 255, 0.98)
+                );
+            border-bottom: 1px solid var(--border);
         }
-        .center-image {
+
+        .profile-image {
             display: block;
-            margin: 0 auto;
-            border-radius: 0;
-            max-width: 300px;
+            width: min(260px, 75vw);
             height: auto;
+            margin: 0 auto 24px;
+            border: 5px solid var(--white);
+            border-radius: 10px;
+            box-shadow: 0 10px 28px rgba(23, 50, 77, 0.18);
         }
-    </style>
-    <script>
-        function toggleNav() {
-            var nav = document.getElementById("nav");
-            if (nav.style.display === "flex") {
-                nav.style.display = "none";
-            } else {
-                nav.style.display = "flex";
+
+        .profile-name {
+            margin: 0;
+            color: var(--navy);
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(2.2rem, 7vw, 3.35rem);
+            font-weight: 600;
+            line-height: 1.15;
+            letter-spacing: 0.01em;
+        }
+
+        .profile-name a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .profile-title {
+            margin: 12px 0 0;
+            color: var(--muted);
+            font-size: 1.08rem;
+        }
+
+        .profile-divider {
+            width: 62px;
+            height: 3px;
+            margin: 20px auto 0;
+            background: var(--gold);
+            border: 0;
+            border-radius: 999px;
+        }
+
+        /* Main content */
+
+        main {
+            padding: 6px 52px 56px;
+        }
+
+        .section {
+            padding: 36px 0;
+            border-bottom: 1px solid var(--border);
+            scroll-margin-top: 78px;
+        }
+
+        .section:last-child {
+            border-bottom: 0;
+        }
+
+        .section-title {
+            position: relative;
+            margin: 0 0 22px;
+            padding-left: 16px;
+            color: var(--navy);
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 1.55rem;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        .section-title::before {
+            position: absolute;
+            top: 0.14em;
+            bottom: 0.14em;
+            left: 0;
+            width: 4px;
+            content: "";
+            background: var(--blue);
+            border-radius: 999px;
+        }
+
+        .subsection-title {
+            margin: 28px 0 14px;
+            color: var(--navy);
+            font-size: 1.1rem;
+        }
+
+        p {
+            margin: 0;
+        }
+
+        ul {
+            margin: 0;
+            padding-left: 1.4rem;
+        }
+
+        li {
+            margin-bottom: 13px;
+            padding-left: 3px;
+        }
+
+        li:last-child {
+            margin-bottom: 0;
+        }
+
+        .paper-title,
+        .event-title,
+        .award-title,
+        .organization-title {
+            font-weight: 600;
+        }
+
+        .note {
+            margin-top: 18px;
+            color: var(--muted);
+            font-size: 0.92rem;
+        }
+
+        .status {
+            display: inline-block;
+            margin-left: 6px;
+            padding: 2px 8px;
+            color: var(--blue-dark);
+            font-size: 0.75rem;
+            font-weight: 700;
+            line-height: 1.5;
+            vertical-align: 1px;
+            background: var(--blue-light);
+            border: 1px solid #c8dff2;
+            border-radius: 999px;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .skills-list li {
+            margin: 0;
+            padding: 7px 13px;
+            color: var(--navy);
+            font-weight: 600;
+            background: var(--blue-light);
+            border: 1px solid #cddfec;
+            border-radius: 999px;
+        }
+
+        .contact-box {
+            padding: 20px 22px;
+            background: var(--blue-light);
+            border: 1px solid #cfdfeb;
+            border-radius: 9px;
+        }
+
+        /* Footer */
+
+        .site-footer {
+            padding: 22px 30px;
+            color: #d9e5ee;
+            font-size: 0.86rem;
+            text-align: center;
+            background: var(--navy);
+        }
+
+        /* Mobile */
+
+        @media (max-width: 780px) {
+            body {
+                background-attachment: scroll;
+            }
+
+            .page {
+                width: 100%;
+                margin: 0;
+                border: 0;
+                border-radius: 0;
+            }
+
+            .site-nav {
+                justify-content: flex-end;
+                min-height: 54px;
+                padding: 0 14px;
+            }
+
+            .nav-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 54px;
+                right: 14px;
+                left: 14px;
+                display: none;
+                flex-direction: column;
+                gap: 0;
+                padding: 10px;
+                background: var(--white);
+                border: 1px solid var(--border);
+                border-radius: 9px;
+                box-shadow: 0 12px 30px rgba(23, 50, 77, 0.16);
+            }
+
+            .nav-links.is-open {
+                display: flex;
+            }
+
+            .nav-links a {
+                padding: 9px 12px;
+                border-radius: 6px;
+            }
+
+            .nav-links a:hover {
+                background: var(--blue-light);
+                transform: none;
+            }
+
+            .profile-header {
+                padding: 40px 22px 36px;
+            }
+
+            main {
+                padding: 0 24px 44px;
+            }
+
+            .section {
+                padding: 31px 0;
+                scroll-margin-top: 66px;
+            }
+
+            .section-title {
+                font-size: 1.4rem;
             }
         }
-    </script>
+
+        @media (max-width: 420px) {
+            main {
+                padding-right: 19px;
+                padding-left: 19px;
+            }
+
+            .profile-header {
+                padding-right: 18px;
+                padding-left: 18px;
+            }
+
+            ul {
+                padding-left: 1.15rem;
+            }
+        }
+    </style>
 </head>
+
 <body>
-    <div class="container">
-        <div class="nav-container">
-            <button class="nav-toggle" onclick="toggleNav()">&#9776;</button>
-            <div class="nav" id="nav">
-                <a href="#research interests">Research Interests</a>
-                <a href="#working papers">Working Papers</a>
-                <a href="#presentations">Presentations</a>
-                <a href="#education">Education</a>
-                <a href="#honors">Honors, Scholarships, and Fellowships</a>
-                <a href="#teaching">Teaching Experience</a>
-                <a href="#research assistant">Research Assistant</a>
-                <a href="#contact">Contact</a>
-            </div>
-        </div>
-        
-        <h1 class="center-text"><a href="https://keitakuwahara.github.io/" style="color: #222;">Keita Kuwahara</a></h1>
-        
-        <img class="center-image" src="1744718685497.jpg" alt="Profile Image">
+    <div class="page">
+        <nav class="site-nav" aria-label="Main navigation">
+            <button
+                class="nav-toggle"
+                id="nav-toggle"
+                type="button"
+                aria-label="Open navigation menu"
+                aria-controls="nav-links"
+                aria-expanded="false"
+            >
+                &#9776;
+            </button>
 
-        <p class="center-text">PhD Student at the University of Tokyo</p>
-
-        
-        
-        <div class="section" id="research interests">
-            <h2 style="color: blue;">Research Interests</h2>
-            <p>Game Theory, Information Economics, and Mechanism Design</p>
-        </div>
-        
-        <div class="section" id="working papers">
-            <h2 style="color: blue;">Working Papers</h2>
-            <ul>
-                <li><a href="https://arxiv.org/abs/2601.07452" target="_blank">A Note on 'The Limits of Price Discrimination' by Bergemann, Brooks, and Morris</a></li>
-                <li><a href="https://arxiv.org/abs/2601.04942" target="_blank">When Public Information Helps Consumers</a></li>
-                <li><a href="https://arxiv.org/abs/2502.10086" target="_blank">Selling Multiple Items to a Unit-Demand Buyer via Automated Mechanism Design</a> (Joint with Kento Hashimoto and Reo Nonaka)</li>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#research-interests">Research Interests</a></li>
+                <li><a href="#working-papers">Working Papers</a></li>
+                <li><a href="#presentations">Presentations</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#research-honors">Research Honors</a></li>
+                <li><a href="#other-awards">Other Awards</a></li>
+                <li><a href="#teaching">Teaching</a></li>
+                <li><a href="#research-assistant">Research Assistant</a></li>
+                <li><a href="#programming-languages">Programming</a></li>
+                <li><a href="#languages">Languages</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
-        </div>
+        </nav>
 
+        <header class="profile-header">
+            <img
+                class="profile-image"
+                src="1744718685497.jpg"
+                alt="Portrait of Keita Kuwahara"
+            >
 
-        <div class="section" id="presentations">
-            <h2 style="color: blue;">Presentations (including scheduled ones)</h2>
-            <ul>
-                <li><a href="https://gametheorysociety.org/conferences/29th-ctn-conference-3/" target="_blank">Asian Game Theory Conference 2026</a>, Waseda University, Tokyo, Japan, August 2026</li>
-                <li><a href="https://sites.google.com/view/swetotaruhokudai/home" target="_blank">Summer Workshop on Economic Theory</a>, Hotel Nord Otaru, Otaru, Japan, August 2026</li>
-                <li><a href="https://sites.google.com/g.ecc.u-tokyo.ac.jp/tcmd/tcmd2026-young-theorists?pli=1" target="_blank">Tokyo Conference on Market Design 2026 Young Theorists' Forum</a>, The University of Tokyo, Tokyo, Japan, June 2026*</li>
-                <li><a href="https://scwsociety.org/2026-Meeting.html" target="_blank">18th Meeting of the Society for Social Choice and Welfare</a>, The University of Tokyo, Tokyo, Japan, June 2026</li>
-                <li><a href="https://www.jeaweb.org/meetings" target="_blank">Spring Meeting of the Japanese Economic Association (Poster)</a>, Osaka Metropolitan University, Osaka, Japan, May 2026</li>
-                <li><a href="https://sites.google.com/view/gametheoryjapan/home" target="_blank">Game Theory Workshop 2026</a>, The University of Tokyo, Tokyo, Japan, March 2026</li>
-                <li><a href="https://www.mdc.e.u-tokyo.ac.jp/en/the-microeconomic-theory-workshop/" target="_blank">Microeconomic Theory Workshop</a>, The University of Tokyo, Tokyo, Japan, January 2026</li>
-                <li><a href="https://www.econometricsociety.org/regional-activities/schedule/2025/08/11/2025-Asia-Summer-School-in-Economic-Theory-Seoul-South-Korea" target="_blank">Asian School in Economic Theory (formerly Summer School of Econometric Society)</a>, Korea Foundation for Advanced Studies, Seoul, South Korea, August 2025</li>
-                <li><a href="https://gametheorysociety.org/7th-world-congress-of-the-game-theory-society/" target="_blank">7th World Congress of the Game Theory Society</a>, Peking University, Beijing, China, August 2024*</li>
-            </ul>
-            <p><em>* Presented by a coauthor</em></p>
-        </div>
+            <h1 class="profile-name">
+                <a href="https://keitakuwahara.github.io/">
+                    Keita Kuwahara
+                </a>
+            </h1>
 
+            <p class="profile-title">
+                PhD Student in Economics at the University of Tokyo
+            </p>
 
-        <div class="section" id="education">
-            <h2 style="color: blue;">Education</h2>
-            <ul>
-                <li>Ph.D. in Economics, The University of Tokyo, April 2026 – Present</li>
-                <li>M.A. in Economics, The University of Tokyo, April 2025 – March 2026</li>
-                <li>B.A. in Economics, The University of Tokyo, April 2021 – March 2025</li>
-            </ul>
-        </div>
+            <hr class="profile-divider">
+        </header>
 
+        <main>
+            <section class="section" id="research-interests">
+                <h2 class="section-title">Research Interests</h2>
 
+                <p>
+                    Game Theory, Information Economics, and Mechanism Design
+                </p>
+            </section>
 
-        
-        <div class="section" id="honors">
-            <h2 style="color: blue;">Honors, Scholarships, and Fellowships</h2>
-            <ul>
-                <li><a href="https://www.jsps.go.jp/english/e-pd/" target="_blank">Research Fellowship for Young Scientists (DC1)</a>, Japan Society for the Promotion of Science, April 2026 – March 2029</li>
-                <li><a href="https://www.student.e.u-tokyo.ac.jp/takuetsu-e.html" target="_blank">World-leading Innovative Graduate Study of Advanced Economics</a>, The University of Tokyo, April 2025 – March 2029</li>
-                <li>Distinguished Undergraduate Thesis Award, Department of Economics, The University of Tokyo, 2025</li>
-                <li><a href="https://www.u-tokyo.ac.jp/focus/ja/articles/t_z1301_00037.html" target="_blank">Executive Director’s Award for Business Reform</a>, The University of Tokyo, 2024</li>
-            </ul>
-        </div>
+            <section class="section" id="working-papers">
+                <h2 class="section-title">Working Papers</h2>
 
-        <div class="section" id="teaching">
-            <h2 style="color: blue;">Teaching Experience (including scheduled ones)</h2>
-            <h3 style="color: blue;">Instructor</h3>
-            <ul>
-                <li>Math Camp (Graduate), The University of Tokyo, Spring 2026</li>
-            </ul>
-            <h3 style="color: blue;">Teaching Assistant</h3>
-            <ul>
-                <li>Microeconomics I (Undergraduate), The University of Tokyo, Fall 2026</li>
-                <li>Microeconomics I (Graduate Core), The University of Tokyo, Spring 2026</li>
-                <li>Game Theory (Undergraduate), The University of Tokyo, Spring 2026</li>
-                <li>Social Sciences Seminar (Economics and Statistics) (Undergraduate; Advanced Game Theory for Komaba Students), The University of Tokyo, Spring 2026</li>
-                <li>Microeconomics I (Undergraduate), The University of Tokyo, Fall 2025</li>
-                <li>Microeconomics I (Graduate Core), The University of Tokyo, Spring 2025</li>
-            </ul>
-        </div>
+                <ul>
+                    <li>
+                        <a
+                            class="paper-title"
+                            href="https://arxiv.org/abs/2601.07452"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            A Note on 'The Limits of Price Discrimination'
+                            by Bergemann, Brooks, and Morris
+                        </a>
+                    </li>
 
-        <div class="section" id="research assistant">
-            <h2 style="color: blue;">Research Assistant</h2>
-            <ul>
-                <li><a href="https://www.jst.go.jp/erato/kojima/en/index.html" target="_blank">ERATO Kojima Market Design Project</a>, April 2024 – Present</li>
-                <li><a href="https://www.mdc.e.u-tokyo.ac.jp/en/" target="_blank">The University of Tokyo Market Design Center</a>, January 2023 – Present</li>
-                <li><a href="https://utecon.net/en/" target="_blank">UTokyo Economic Consulting Inc.</a>, April 2023 – March 2025</li>
-            </ul>
-        </div>
-        
-        <div class="section" id="contact">
-            <h2 style="color: blue;">Contact</h2>
-            <p>Email: <a href="mailto:kuke0303@g.ecc.u-tokyo.ac.jp">kuke0303@g.ecc.u-tokyo.ac.jp</a></p>
-        </div>
-        
-<!--         <div class="footer">
-            <p>&copy; 2025 Keita Kuwahara. All Rights Reserved.</p>
-        </div> -->
+                    <li>
+                        <a
+                            class="paper-title"
+                            href="https://arxiv.org/abs/2601.04942"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            When Public Information Helps Consumers
+                        </a>
+                    </li>
+
+                    <li>
+                        <a
+                            class="paper-title"
+                            href="https://arxiv.org/abs/2502.10086"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Selling Multiple Items to a Unit-Demand Buyer
+                            via Automated Mechanism Design
+                        </a>
+                        (joint with Kento Hashimoto and Reo Nonaka)
+                    </li>
+                </ul>
+            </section>
+
+            <section class="section" id="presentations">
+                <h2 class="section-title">Presentations</h2>
+
+                <ul>
+                    <li>
+                        <a
+                            class="event-title"
+                            href="https://gametheorysociety.org/conferences/29th-ctn-conference-3/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Asian Game Theory Conference 2026
+                        </a>,
+                        Waseda University, Tokyo, Japan, August 2026
+                        <span class="status">Scheduled</span>
+                    </li>
+
+                    <li>
+                        <a
+                            class="event-title"
+                            href="https://sites.google.com/view/swetotaruhokudai/home"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Summer Workshop on Economic Theory
+                        </a>,
+                        Hotel Nord Otaru, Otaru, Japan, August 2026
+                        <span class="status">Scheduled</span>
+                    </li>
+
+                    <li>
+                        <a
+                            class="event-title"
+                            href="https://sites.google.com/g.ecc.u-tokyo.ac.jp/tcmd/tcmd2026-young-theorists?pli=1"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Tokyo Conference on Market Design 2026
+                            Young Theorists' Forum
+                        </a>,
+                        The University of Tokyo, Tokyo, Japan, June 2026*
+                    </li>
+
+                    <li>
+                        <a
+                            class="event-title"
+                            href="https://scwsociety.org/2026-Meeting.html"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            18th Meeting of the Society for Social Choice
+                            and Welfare
+                        </a>,
+                        The University of Tokyo, Tokyo, Japan, June 2026
+                    </li>
+
+                    <li>
+                        <a
+                            class="event-title"
+                            href="https://www.jeaweb.org/meetings"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Spring Meeting of the Japanese Economic Association
+                            (Poster)
+                        </a>,
+                        Osaka Metropolitan University, Osaka, Japan, May 2026
+                    </li>
+
+                    <li>
+                        <a
+                            class="event-title"
+                            href="https://sites.google.com/view/gametheoryjapan/home"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Game Theory Workshop 2026
+                        </a>,
+                        The University of Tokyo, Tokyo, Japan, March 2026
+                    </li>
+
+                    <li>
+                        <a
+                            class="event-title"
+                            href="https://www.mdc.e.u-tokyo.ac.jp/en/the-microeconomic-theory-workshop/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Microeconomic Theory Workshop
+                        </a>,
+                        The University of Tokyo, Tokyo, Japan, January 2026
+                    </li>
+
+                    <li>
+                        <a
+                            class="event-title"
+                            href="https://www.econometricsociety.org/regional-activities/schedule/2025/08/11/2025-Asia-Summer-School-in-Economic-Theory-Seoul-South-Korea"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Asian School in Economic Theory
+                            (formerly Summer School of the Econometric Society)
+                        </a>,
+                        Korea Foundation for Advanced Studies,
+                        Seoul, South Korea, August 2025
+                    </li>
+
+                    <li>
+                        <a
+                            class="event-title"
+                            href="https://gametheorysociety.org/7th-world-congress-of-the-game-theory-society/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            7th World Congress of the Game Theory Society
+                        </a>,
+                        Peking University, Beijing, China, August 2024*
+                    </li>
+                </ul>
+
+                <p class="note">
+                    <em>* Presented by a coauthor</em>
+                </p>
+            </section>
+
+            <section class="section" id="education">
+                <h2 class="section-title">Education</h2>
+
+                <ul>
+                    <li>
+                        Ph.D. in Economics, The University of Tokyo,
+                        April 2026 – Present
+                    </li>
+
+                    <li>
+                        M.A. in Economics, The University of Tokyo,
+                        April 2025 – March 2026
+                    </li>
+
+                    <li>
+                        B.A. in Economics, The University of Tokyo,
+                        April 2021 – March 2025
+                    </li>
+                </ul>
+            </section>
+
+            <section class="section" id="research-honors">
+                <h2 class="section-title">
+                    Research Fellowships, Grants, and Honors
+                </h2>
+
+                <ul>
+                    <li>
+                        <a
+                            class="award-title"
+                            href="https://www.jsps.go.jp/english/e-pd/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Research Fellowship for Young Scientists (DC1)
+                        </a>,
+                        Japan Society for the Promotion of Science,
+                        April 2026 – March 2029
+                    </li>
+
+                    <li>
+                        <span class="award-title">
+                            Grant-in-Aid for JSPS Fellows
+                        </span>,
+                        Japan Society for the Promotion of Science,
+                        April 2026 – March 2029
+                    </li>
+
+                    <li>
+                        <a
+                            class="award-title"
+                            href="https://www.student.e.u-tokyo.ac.jp/takuetsu-e.html"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            World-leading Innovative Graduate Study
+                            of Advanced Economics
+                        </a>,
+                        The University of Tokyo,
+                        April 2025 – March 2029
+                    </li>
+
+                    <li>
+                        <span class="award-title">
+                            Distinguished Undergraduate Thesis Award
+                        </span>,
+                        Department of Economics,
+                        The University of Tokyo, 2025
+                    </li>
+                </ul>
+            </section>
+
+            <section class="section" id="other-awards">
+                <h2 class="section-title">Other Honors and Awards</h2>
+
+                <ul>
+                    <li>
+                        <a
+                            class="award-title"
+                            href="https://www.u-tokyo.ac.jp/focus/ja/articles/t_z1301_00037.html"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Executive Director's Award for Business Reform
+                        </a>,
+                        The University of Tokyo, 2024
+                    </li>
+
+                    <li>
+                        <a
+                            class="award-title"
+                            href="https://www.toukei-kentei.jp/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Highest Achievement Award,
+                            Japan Statistical Society Certificate,
+                            Grade 1 (Mathematical Statistics)
+                        </a>,
+                        2023
+                    </li>
+
+                    <li>
+                        <a
+                            class="award-title"
+                            href="https://www.toukei-kentei.jp/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Outstanding Achievement Award,
+                            Japan Statistical Society Certificate,
+                            Grade 1 (Applied Statistics)
+                        </a>,
+                        2023
+                    </li>
+
+                    <li>
+                        <a
+                            class="award-title"
+                            href="https://koushien.jst.go.jp/koushien/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Third Place,
+                            9th Tokyo Metropolitan Science Koshien Competition
+                        </a>,
+                        2019
+                    </li>
+                </ul>
+            </section>
+
+            <section class="section" id="teaching">
+                <h2 class="section-title">Teaching Experience</h2>
+
+                <h3 class="subsection-title">Instructor</h3>
+
+                <ul>
+                    <li>
+                        Math Camp (Graduate),
+                        The University of Tokyo, Spring 2026
+                    </li>
+                </ul>
+
+                <h3 class="subsection-title">Teaching Assistant</h3>
+
+                <ul>
+                    <li>
+                        Microeconomics I (Undergraduate),
+                        The University of Tokyo, Fall 2026
+                    </li>
+
+                    <li>
+                        Microeconomics I (Graduate Core),
+                        The University of Tokyo, Spring 2026
+                    </li>
+
+                    <li>
+                        Game Theory (Undergraduate),
+                        The University of Tokyo, Spring 2026
+                    </li>
+
+                    <li>
+                        Social Sciences Seminar
+                        (Economics and Statistics)
+                        (Undergraduate; Advanced Game Theory
+                        for Komaba Students),
+                        The University of Tokyo, Spring 2026
+                    </li>
+
+                    <li>
+                        Microeconomics I (Undergraduate),
+                        The University of Tokyo, Fall 2025
+                    </li>
+
+                    <li>
+                        Microeconomics I (Graduate Core),
+                        The University of Tokyo, Spring 2025
+                    </li>
+                </ul>
+            </section>
+
+            <section class="section" id="research-assistant">
+                <h2 class="section-title">Research Assistant</h2>
+
+                <ul>
+                    <li>
+                        <a
+                            class="organization-title"
+                            href="https://www.jst.go.jp/erato/kojima/en/index.html"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            ERATO Kojima Market Design Project
+                        </a>,
+                        April 2024 – Present
+                    </li>
+
+                    <li>
+                        <a
+                            class="organization-title"
+                            href="https://www.mdc.e.u-tokyo.ac.jp/en/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            The University of Tokyo Market Design Center
+                        </a>,
+                        January 2023 – Present
+                    </li>
+
+                    <li>
+                        <a
+                            class="organization-title"
+                            href="https://utecon.net/en/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            UTokyo Economic Consulting Inc.
+                        </a>,
+                        April 2023 – March 2025
+                    </li>
+                </ul>
+            </section>
+
+            <section class="section" id="programming-languages">
+                <h2 class="section-title">Programming Languages</h2>
+
+                <ul class="skills-list" aria-label="Programming languages">
+                    <li>Python, C++, C#</li>
+                </ul>
+            </section>
+
+            <section class="section" id="languages">
+                <h2 class="section-title">Languages</h2>
+
+                <ul>
+                    <li>Japanese (native)</li>
+                    <li>English</li>
+                </ul>
+            </section>
+
+            <section class="section" id="contact">
+                <h2 class="section-title">Contact</h2>
+
+                <div class="contact-box">
+                    <p>
+                        Email:
+                        <a href="mailto:kuke0303@g.ecc.u-tokyo.ac.jp">
+                            kuke0303@g.ecc.u-tokyo.ac.jp
+                        </a>
+                    </p>
+                </div>
+            </section>
+        </main>
+
+        <footer class="site-footer">
+            &copy; <span id="current-year"></span> Keita Kuwahara
+        </footer>
     </div>
+
+    <script>
+        const navToggle = document.getElementById("nav-toggle");
+        const navLinks = document.getElementById("nav-links");
+        const menuLinks = navLinks.querySelectorAll("a");
+
+        function closeNavigation() {
+            navLinks.classList.remove("is-open");
+            navToggle.setAttribute("aria-expanded", "false");
+            navToggle.setAttribute(
+                "aria-label",
+                "Open navigation menu"
+            );
+        }
+
+        navToggle.addEventListener("click", () => {
+            const isOpen = navLinks.classList.toggle("is-open");
+
+            navToggle.setAttribute(
+                "aria-expanded",
+                String(isOpen)
+            );
+
+            navToggle.setAttribute(
+                "aria-label",
+                isOpen
+                    ? "Close navigation menu"
+                    : "Open navigation menu"
+            );
+        });
+
+        menuLinks.forEach((link) => {
+            link.addEventListener("click", closeNavigation);
+        });
+
+        document.addEventListener("click", (event) => {
+            const clickedInsideNavigation =
+                navLinks.contains(event.target) ||
+                navToggle.contains(event.target);
+
+            if (!clickedInsideNavigation) {
+                closeNavigation();
+            }
+        });
+
+        window.addEventListener("resize", () => {
+            if (window.innerWidth > 780) {
+                closeNavigation();
+            }
+        });
+
+        document.getElementById("current-year").textContent =
+            new Date().getFullYear();
+    </script>
 </body>
 </html>
